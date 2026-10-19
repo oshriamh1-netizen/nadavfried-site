@@ -35,11 +35,7 @@ collections:
     slug: '{{fields.slug}}'
     identifier_field: title
     summary: '{{title}}  ·  {{category}}  ·  {{date}}'
-    sortable_fields:
-      fields: ['date', 'title', 'category']
-      default:
-        field: date
-        direction: descending
+    sortable_fields: ['date', 'title', 'category']
     view_groups:
       - label: קטגוריה
         field: category
