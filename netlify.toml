@@ -1,0 +1,8 @@
+[build]
+  command = "python3 build.py"
+  publish = "dist"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

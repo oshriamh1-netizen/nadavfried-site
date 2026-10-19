@@ -1,0 +1,147 @@
+backend:
+  name: github
+  repo: oshriamh1-netizen/nadavfried-site
+  branch: main
+  commit_messages:
+    create: 'כתבה חדשה: {{slug}}'
+    update: 'עדכון כתבה: {{slug}}'
+    delete: 'מחיקת כתבה: {{slug}}'
+    uploadMedia: 'העלאת תמונה: {{path}}'
+    deleteMedia: 'מחיקת תמונה: {{path}}'
+
+locale: 'he'
+site_url: https://nadavfried.co.il
+display_url: https://nadavfried.co.il
+logo_url: https://nadavfried.co.il/favicon.svg
+
+media_folder: uploads
+public_folder: /uploads
+
+slug:
+  encoding: unicode
+  clean_accents: false
+  sanitize_replacement: '-'
+
+collections:
+  - name: articles
+    label: כתבות
+    label_singular: כתבה
+    description: 'כל המאמרים באתר. כתבה חדשה עולה לאתר כדקה אחרי לחיצה על Publish, ומופיעה אוטומטית בעמוד המאמרים, בקרוסלה בדף הבית ובמפת האתר. רשימת כל הכתובות לקישורים פנימיים: https://nadavfried.co.il/admin/links.html'
+    folder: content/articles
+    extension: md
+    format: json-frontmatter
+    create: true
+    delete: true
+    slug: '{{fields.slug}}'
+    identifier_field: title
+    summary: '{{title}}  ·  {{category}}  ·  {{date}}'
+    sortable_fields: ['date', 'title', 'category']
+    view_groups:
+      - label: קטגוריה
+        field: category
+    fields:
+      - label: כותרת הכתבה
+        name: title
+        widget: string
+      - label: תת-כותרת
+        name: subtitle
+        widget: string
+        required: false
+        hint: 'משפט קצר שמופיע מתחת לכותרת בראש הכתבה'
+      - label: קטגוריה
+        name: category
+        widget: relation
+        collection: settings
+        file: categories
+        search_fields: ['categories.*.name']
+        display_fields: ['categories.*.name']
+        value_field: 'categories.*.name'
+      - label: תאריך פרסום
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DD'
+        date_format: 'DD/MM/YYYY'
+        time_format: false
+        hint: 'קובע את הסדר: הכתבה החדשה ביותר מופיעה ראשונה'
+      - label: תמונה ראשית
+        name: image
+        widget: image
+        hint: 'מופיעה בראש הכתבה ובכרטיס הכתבה בעמוד המאמרים. מומלץ תמונה רוחבית'
+      - label: כתובת העמוד (URL)
+        name: slug
+        widget: string
+        hint: 'החלק שאחרי nadavfried.co.il/ — למשל keren-hirum יהפוך ל-nadavfried.co.il/keren-hirum.html. אותיות קטנות באנגלית או עברית, מספרים ומקפים בלבד, בלי רווחים. לא לשנות אחרי פרסום (זה ישבור קישורים)'
+        pattern: ['^[a-z0-9֐-׿-]+$', 'רק אותיות קטנות באנגלית או עברית, מספרים ומקפים, בלי רווחים']
+      - label: SEO · כותרת לגוגל (title)
+        name: seo_title
+        widget: string
+        required: false
+        hint: 'אם ריק, תשמש כותרת הכתבה. אל תוסיפו את שם האתר, הוא מתווסף אוטומטית'
+      - label: SEO · תיאור לגוגל (meta description)
+        name: description
+        widget: text
+        required: false
+        hint: 'כ-150 תווים. אם ריק, תשמש תת-הכותרת'
+      - label: SEO · תמונה לשיתוף ברשתות (og:image)
+        name: og_image
+        widget: image
+        required: false
+        hint: 'אופציונלי. אם ריק, תשמש התמונה הראשית'
+      - label: טקסט הכתבה
+        name: body
+        widget: markdown
+        buttons: ['bold', 'italic', 'link', 'heading-two', 'heading-three', 'quote', 'bulleted-list', 'numbered-list']
+        editor_components: ['image']
+        hint: 'תמונה בתוך הטקסט: כפתור + ואז Image. קישור פנימי: מסמנים מילה, לוחצים על כפתור הקישור ומדביקים כתובת של עמוד באתר (רשימה מלאה: nadavfried.co.il/admin/links.html)'
+      - label: קישור לפוסט המקורי בפייסבוק
+        name: source_url
+        widget: string
+        required: false
+      - label: הסתייגות בסוף הכתבה
+        name: disclaimer
+        widget: string
+        required: false
+        default: 'אין לראות באמור המלצה להשקעה או תחליף לייעוץ מותאם אישית'
+      - label: טיוטה (לא להציג באתר)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+
+  - name: settings
+    label: הגדרות
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: categories
+        label: קטגוריות
+        file: data/categories.json
+        fields:
+          - label: קטגוריות
+            name: categories
+            widget: list
+            label_singular: קטגוריה
+            summary: '{{fields.name}}'
+            fields:
+              - label: שם הקטגוריה
+                name: name
+                widget: string
+              - label: צבע
+                name: color
+                widget: select
+                options:
+                  - { label: 'זהב', value: 'gold' }
+                  - { label: 'כתום', value: 'brand' }
+                  - { label: 'ענבר', value: 'amber' }
+                  - { label: 'כתום כהה', value: 'brand-strong' }
+              - label: אייקון
+                name: icon
+                widget: select
+                options:
+                  - { label: 'חיסכון (מטבעות)', value: 'savings' }
+                  - { label: 'משכנתא (בית)', value: 'mortgage' }
+                  - { label: 'שוק ההון (גרף)', value: 'market' }
+                  - { label: 'נדל״ן (בניין)', value: 'realestate' }
+                  - { label: 'פנסיה', value: 'pension' }
+                  - { label: 'תזרים', value: 'cashflow' }

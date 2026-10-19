@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "אפיקי חיסכון",
+      "color": "gold",
+      "icon": "savings"
+    },
+    {
+      "name": "משכנתא",
+      "color": "brand",
+      "icon": "mortgage"
+    },
+    {
+      "name": "שוק ההון",
+      "color": "amber",
+      "icon": "market"
+    },
+    {
+      "name": "נדל״ן",
+      "color": "brand-strong",
+      "icon": "realestate"
+    },
+    {
+      "name": "פנסיה",
+      "color": "gold",
+      "icon": "pension"
+    },
+    {
+      "name": "תזרים",
+      "color": "amber",
+      "icon": "cashflow"
+    }
+  ]
+}

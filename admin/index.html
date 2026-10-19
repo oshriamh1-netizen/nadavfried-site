@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ניהול כתבות · נדב פריד</title>
+  <link rel="icon" href="/favicon.svg">
+  <style>
+    /* Hebrew right-to-left inside the editor fields */
+    [data-slate-editor], [data-slate-editor] *, textarea, input[type="text"] { direction: rtl; text-align: right; }
+    [data-slate-editor] { font-family: 'Heebo', system-ui, sans-serif; font-size: 17px; line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle(`
+      @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800&display=swap');
+      body{direction:rtl;font-family:'Heebo',system-ui,sans-serif;line-height:1.7;color:#2a1a10;padding:1.5rem}
+      h1{font-size:2rem;font-weight:800} h2,h3{color:#d0672e;font-weight:800}
+      a{color:#d0672e;font-weight:700} img{max-width:100%;border-radius:14px}
+      blockquote{border-right:4px solid #d0672e;margin:1rem 0;padding:.5rem 1rem;background:#fdf1e6}
+    `, { raw: true });
+  </script>
+</body>
+</html>
