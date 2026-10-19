@@ -10,6 +10,8 @@
     /* Whole admin UI right-to-left */
     html, body { direction: rtl; }
     body { font-family: 'Heebo', system-ui, sans-serif; }
+    /* the fixed side panel moves to the right in RTL: move the list's reserved gap with it */
+    main[class*="CollectionMain"], main[class*="Collection"] { padding-left: 0 !important; padding-right: 280px !important; }
     /* Hebrew right-to-left inside the editor fields */
     [data-slate-editor], [data-slate-editor] *, textarea, input[type="text"] { direction: rtl; text-align: right; }
     [data-slate-editor] { font-family: 'Heebo', system-ui, sans-serif; font-size: 17px; line-height: 1.7; }
