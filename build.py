@@ -101,8 +101,12 @@ def abs_url(u):
 
 
 # ---------------------------------------------------------------- markdown -> html in site style
+MD_EXTS = ['markdown.extensions.' + e for e in
+           ('fenced_code', 'footnotes', 'attr_list', 'def_list', 'tables', 'abbr', 'md_in_html', 'sane_lists')]
+
+
 def md_to_html(md):
-    h = markdown.markdown(md, extensions=['extra', 'sane_lists'], output_format='html')
+    h = markdown.markdown(md, extensions=MD_EXTS, output_format='html')
     h = re.sub(r'<h([23])>', r"<h\1 class='art-h'>", h)
     h = h.replace('<ul>', "<ul class='art-ul'>")
     # images: lazy + alt fallback
