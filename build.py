@@ -76,6 +76,8 @@ def parse_article(path):
         meta['slug'] = os.path.splitext(os.path.basename(path))[0]
     meta['slug'] = slugify(meta['slug'])
     meta['date'] = str(meta.get('date') or '2000-01-01')[:10]
+    if not meta.get('image'):
+        meta['image'] = '/og-image.jpg'
     return meta
 
 
