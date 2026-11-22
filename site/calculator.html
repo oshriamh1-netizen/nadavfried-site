@@ -1271,6 +1271,10 @@ html{overflow-x:clip;}
 .pod-card{border-radius:var(--radius);overflow:hidden;background:var(--surface);border:1px solid color-mix(in srgb,#fff 60%,transparent);box-shadow:0 20px 46px -28px color-mix(in srgb,var(--brand) 40%,transparent);transition:transform .3s,box-shadow .4s;}
 .pod-card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px color-mix(in srgb,var(--brand) 48%,transparent);}
 .pod-card iframe{display:block;width:100%;height:152px;border:0;}
+.tool-tabs{display:flex;justify-content:center;gap:.5rem;margin:1rem auto 0;flex-wrap:wrap;}
+.tool-tabs a{padding:.45rem 1.1rem;border-radius:999px;border:1px solid var(--brand-line);color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none;background:var(--surface);transition:all .25s;}
+.tool-tabs a:hover{border-color:var(--brand);color:var(--brand);}
+.tool-tabs a.on{background:var(--grad);color:#fff;border-color:transparent;}
 </style>
 </head>
 <body>
@@ -1315,6 +1319,7 @@ html{overflow-x:clip;}
     <div class="heading">
       <span class="r eyebrow-xl">כלים</span>
       <h2 class="r head-slogan">מחשבון ריבית דריבית</h2>
+      <nav class="tool-tabs" aria-label="מחשבונים"><a href="calculator.html" class="on" aria-current="page">מחשבון ריבית דריבית</a><a href="mas-yasaf.html">מחשבון מס יסף</a></nav>
     </div>
     <div class="calc-card">
       <div class="calc-form">
