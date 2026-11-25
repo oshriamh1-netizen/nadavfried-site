@@ -1275,15 +1275,15 @@ html{overflow-x:clip;}
 #yasafApp{position:relative;border-radius:30px;overflow:hidden;color:#fff;isolation:isolate;
   background:radial-gradient(60% 50% at 100% 0%,rgba(208,103,46,.38),transparent 65%),radial-gradient(50% 60% at 0% 100%,rgba(232,146,15,.22),transparent 65%),linear-gradient(160deg,#2b221c,#17120f);
   box-shadow:0 0 0 1px rgba(255,255,255,.08),0 60px 120px -50px rgba(23,18,15,.6);}
-#yasafApp .app-bar{display:flex;align-items:center;gap:1rem;padding:.9rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);}
+#yasafApp .app-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);}
 #yasafApp .app-dots{display:flex;gap:.4rem;direction:ltr;}
 #yasafApp .app-dots i{width:.7rem;height:.7rem;border-radius:50%;background:rgba(255,255,255,.2);}
 #yasafApp .app-dots i:first-child{background:#ff6b6b;}
 #yasafApp .app-dots i:nth-child(2){background:#ff8a65;}
 #yasafApp .app-dots i:nth-child(3){background:#3dd68c;}
-#yasafApp .app-title{display:flex;align-items:center;gap:.5rem;font-weight:700;margin-inline:auto;}
-#yasafApp .app-title img{width:1.6rem;height:1.6rem;}
-#yasafApp .app-year{font-size:.8rem;font-weight:700;padding:.2rem .7rem;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);}
+#yasafApp .app-title{font-weight:800;font-size:clamp(1.15rem,3.2vw,1.45rem);text-align:center;justify-self:center;}
+#yasafApp .app-logo{justify-self:end;height:2.6rem;width:auto;display:block;filter:drop-shadow(0 4px 10px rgba(208,103,46,.35));}
+#yasafApp .app-year{justify-self:start;font-size:.95rem;font-weight:700;padding:.3rem .85rem;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);}
 #yasafApp .app-body{display:grid;grid-template-columns:minmax(0,1fr);}
 #yasafApp .app-body>*{min-width:0;}
 @media(min-width:940px){#yasafApp .app-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
@@ -1417,12 +1417,11 @@ html{overflow-x:clip;}
       <h1 class="r head-slogan">מחשבון מס יסף</h1>
       <nav class="tool-tabs" aria-label="מחשבונים"><a href="calculator.html">מחשבון ריבית דריבית</a><a href="mas-yasaf.html" class="on" aria-current="page">מחשבון מס יסף</a></nav>
     </div>
-    <p class="yasaf-intro r">מס יסף הוא 3% על כל הכנסה מעל <span class="num">721,560 ₪</span> בשנה, ועוד 2% על הכנסות הוניות שמעל התקרה. בחרו תרחיש או הזינו את המספרים שלכם.</p>
     <div class="app r" id="yasafApp">
       <div class="app-bar">
-        <span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="app-title"><img src="favicon.svg" alt="" width="64" height="52">מחשבון מס יסף</span>
         <span class="app-year num">2026</span>
+        <span class="app-title">מחשבון מס יסף</span>
+        <img class="app-logo" src="favicon.svg" alt="נדב פריד">
       </div>
       <div class="app-body">
         <div class="app-in">
@@ -1430,7 +1429,6 @@ html{overflow-x:clip;}
           <div class="presets" id="presets">
             <button type="button" data-p="780000,350000,0" aria-pressed="false"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" x="9" y="9" width="46" height="46" rx="11"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="m18 41 9-10 7 6 12-14"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M39 23h7v7"/></svg>הייטק עם מניות</button>
             <button type="button" data-p="950000,40000,0" aria-pressed="false"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" cx="30" cy="34" r="21"/><circle fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" cx="30" cy="34" r="11"/><circle cx="30" cy="34" r="3.5" fill="#F0A81A"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M33 31 52 12m-7 0h7v7"/></svg>רפואה בכירה</button>
-            <button type="button" data-p="680000,60000,96000" aria-pressed="false"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M9 29 32 9l23 20"/><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M15 24v26a5 5 0 0 0 5 5h24a5 5 0 0 0 5-5V24"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M27 55V42a5 5 0 0 1 10 0v13"/></svg>שכר ודירה מושכרת</button>
           </div>
 
           <div class="fld-app">
@@ -1443,11 +1441,6 @@ html{overflow-x:clip;}
             <div class="fa-top"><label for="inCap"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M9 8v42a5 5 0 0 0 5 5h42"/><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="m18 42 11-12 9 7 13-16"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M43 21h8v8"/></svg>שוק ההון <small>רווחי הון, דיבידנד, ריבית · בשנה</small></label></div>
             <div class="fa-val"><span>₪</span><input id="inCap" inputmode="numeric" value="120,000" aria-label="הכנסות משוק ההון"></div>
             <input type="range" id="rCap" min="0" max="2000000" step="5000" value="120000" aria-label="הכנסות משוק ההון">
-          </div>
-          <div class="fld-app">
-            <div class="fa-top"><label for="inRent"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M9 29 32 9l23 20"/><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M15 24v26a5 5 0 0 0 5 5h24a5 5 0 0 0 5-5V24"/><path fill="none" stroke="#F0A81A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M27 55V42a5 5 0 0 1 10 0v13"/></svg>שכר דירה</label></div>
-            <div class="fa-val"><span>₪</span><input id="inRent" inputmode="numeric" value="0" aria-label="הכנסה משכר דירה"></div>
-            <input type="range" id="rRent" min="0" max="600000" step="2000" value="0" aria-label="הכנסה משכר דירה">
           </div>
         </div>
 
@@ -1470,7 +1463,6 @@ html{overflow-x:clip;}
             <div class="row"><span>תוספת 2% על הכנסה הונית</span><b id="o2">0</b></div>
           </div>
           <div class="insights" id="insights" aria-live="polite"></div>
-          <a href="https://wa.me/972528782900?text=%D7%94%D7%99%D7%99%20%D7%A0%D7%93%D7%91%2C%20%D7%91%D7%93%D7%A7%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%9E%D7%A1%20%D7%94%D7%99%D7%A1%D7%A3%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" rel="noopener" class="btn btn-primary app-cta"><span>רוצים להקטין את זה? דברו איתי</span><span class="arr">←</span></a>
           <p class="disclaimer">החישוב להמחשה בלבד ואינו מהווה ייעוץ מס.</p>
         </div>
       </div>
@@ -1771,8 +1763,7 @@ var tokens=new WeakMap();
   var app=document.getElementById('yasafApp');if(!app)return;
   var CAP=721560;
   var F={work:{inp:'inWork',rng:'rWork',max:3000000,step:10000,monthly:true,v:850000},
-         cap:{inp:'inCap',rng:'rCap',max:2000000,step:5000,monthly:false,v:120000},
-         rent:{inp:'inRent',rng:'rRent',max:600000,step:2000,monthly:true,v:0}};
+         cap:{inp:'inCap',rng:'rCap',max:2000000,step:5000,monthly:false,v:120000}};
   var per='y';
   var $=function(id){return document.getElementById(id);};
   var o={t:$('oTotal'),n:$('oNote'),s:$('oSum'),ov:$('oOver'),a:$('o3'),b:$('o2'),pct:$('oPct')};
@@ -1787,7 +1778,7 @@ var tokens=new WeakMap();
     if(document.activeElement!==inp)inp.value=fmt(f.v/d);}
   function insight(cls,html){return '<div class="insight '+cls+'">'+'<span>'+html+'</span></div>';}
   function render(){
-    var w=F.work.v,c=F.cap.v,r=F.rent.v,t=tax(w,c,r);
+    var w=F.work.v,c=F.cap.v,r=0,t=tax(w,c,r);
     o.s.textContent='₪'+fmt(t.sum);o.ov.textContent='₪'+fmt(t.over);o.a.textContent='₪'+fmt(t.a);o.b.textContent='₪'+fmt(t.b);
     o.n.textContent=t.over>0?'כ '+fmt(t.tot/12)+' ₪ בחודש':'אין מס יסף בהכנסה הזו';
     var share=t.sum>0?t.over/t.sum:0;
@@ -1796,7 +1787,6 @@ var tokens=new WeakMap();
     var scale=Math.max(t.sum,CAP)*1.1;bW.style.width=(w/scale*100)+'%';bC.style.width=((c+r)/scale*100)+'%';bL.style.left=(CAP/scale*100)+'%';
     var h='';
     if(t.over>0){
-      h+=insight('','המס השולי על כל שקל נוסף משכר הוא <b>50%</b>: 47% מס הכנסה ועוד 3% מס יסף.');
       if(c+r>0)h+=insight('warn','על רווחי הון שמעל התקרה תשלמו <b>30%</b> במקום 25%.');
       if(c>0&&w+r<CAP){var save=tax(w,c,r).tot+tax(w,0,r).tot-2*tax(w,c/2,r).tot;
         if(save>50)h+=insight('good','פריסת המימושים על שתי שנות מס יכולה לחסוך כ <b>'+fmt(save)+' ₪</b>.');}
@@ -1820,7 +1810,7 @@ var tokens=new WeakMap();
   document.querySelectorAll('#perSeg button').forEach(function(b){b.addEventListener('click',function(){per=b.dataset.per;
     document.querySelectorAll('#perSeg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
     Object.keys(F).forEach(paintField);});});
-  presets.forEach(function(b){b.addEventListener('click',function(){var v=b.dataset.p.split(',');F.work.v=+v[0];F.cap.v=+v[1];F.rent.v=+v[2];
+  presets.forEach(function(b){b.addEventListener('click',function(){var v=b.dataset.p.split(',');F.work.v=+v[0];F.cap.v=+v[1];
     clearPresets();b.setAttribute('aria-pressed','true');Object.keys(F).forEach(paintField);render();});});
   render();
 })();
